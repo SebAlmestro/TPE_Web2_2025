@@ -7,6 +7,9 @@ Además, se contempla la existencia de una tabla de usuarios, pensada para la ge
 DER
 
 [![Conciertos.png](https://i.postimg.cc/fRBzZdQc/Conciertos.png)](https://postimg.cc/cvtyBrHC)
+
 Participantes
+
 Bilbao Francisco, franciscobilbao30@gmail.com
+
 Almestro Sebastián, sebalmestro@gmail.com
