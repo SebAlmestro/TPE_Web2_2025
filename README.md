@@ -5,11 +5,11 @@ Este proyecto tiene como objetivo el desarrollo de un sitio web informativo sobr
 La plataforma permitirá registrar distintas bandas musicales, cada una de las cuales podrá asociarse a múltiples conciertos, almacenando información detallada acerca de los mismos.
 Además, se contempla la existencia de una tabla de usuarios, pensada para la gestión de permisos y funcionalidades adicionales en futuras etapas del proyecto.                                                      
 
-DER
+DER:
 
 [![Conciertos.png](https://i.postimg.cc/fRBzZdQc/Conciertos.png)](https://postimg.cc/cvtyBrHC)
 
-Participantes
+Participantes:
 
 Bilbao Francisco, franciscobilbao30@gmail.com
 
