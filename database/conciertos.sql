@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-09-2025 a las 22:27:25
+-- Tiempo de generación: 04-10-2025 a las 20:04:00
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -35,6 +35,17 @@ CREATE TABLE `banda` (
   `Imagen` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `banda`
+--
+
+INSERT INTO `banda` (`id_banda`, `Nombre`, `Pais_origen`, `Genero`, `Imagen`) VALUES
+(1, 'Soda Stereo', 'Argentina', 'Rock', 'https://media.ambito.com/p/8fae45575c46a99064c0e58d9ebf7695/adjuntos/239/imagenes/041/770/0041770468/soda-stereo-1984jpg.jpg'),
+(2, 'Enanitos Verdes', 'Argentina', 'Rock', 'https://i.scdn.co/image/0a44319db623b112c3fddca7a1ef88b5756265cd'),
+(3, 'Guns N\' Roses', 'Estados Unidos', 'Rock', 'https://diariopublicable.com/wp-content/uploads/2023/11/AROSES.jpg'),
+(4, 'Pink Floyd', 'Reino Unido', 'Rock', 'https://indiehoy.com/wp-content/uploads/2025/06/pink-floyd.jpg');
+
+
 -- --------------------------------------------------------
 
 --
@@ -49,6 +60,14 @@ CREATE TABLE `concierto` (
   `Ciudad` varchar(250) NOT NULL,
   `id_banda` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `concierto`
+--
+
+INSERT INTO `concierto` (`id_concierto`, `Fecha`, `Horario`, `Lugar`, `Ciudad`, `id_banda`) VALUES
+(1, '2026-02-04', '20:00:00', 'Estadio Monumental, River Plate.', 'Nuñez, Argentina', 3),
+(2, '2025-12-12', '21:00:00', 'Movistar Arena', 'Villa Crespo, Argentina', 2);
 
 -- --------------------------------------------------------
 
@@ -96,13 +115,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `banda`
 --
 ALTER TABLE `banda`
-  MODIFY `id_banda` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_banda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `concierto`
 --
 ALTER TABLE `concierto`
-  MODIFY `id_concierto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_concierto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
