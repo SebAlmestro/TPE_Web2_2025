@@ -19,4 +19,22 @@ class BandaController {
         $this->view->showBandas($bandas);
     }
 
+    function showAgregarBanda() {
+        $this->view->showAgregarBanda();
+    }
+
+    function addBanda() {
+        if (!empty($_POST['nombre']) && !empty($_POST['pais']) && !empty($_POST['genero']) && !empty($_POST['imagen'])) {
+            $nombre = $_POST['nombre'];
+            $pais = $_POST['pais'];
+            $genero = $_POST['genero'];
+            $imagen = $_POST['imagen'];
+
+            $this->model->addBanda($nombre, $pais, $genero, $imagen);
+            header("Location: " . BASE_URL . "bandas");
+        } else {
+            $this->view->showError("Todos los campos son obligatorios");
+        }
+    }
+
 }

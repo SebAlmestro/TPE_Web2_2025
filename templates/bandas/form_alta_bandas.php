@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="css/style.css">
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8">
+            <div class="card shadow-lg bg-dark text-light border-0">
+                <div class="card-header text-center fs-4 fw-bold bg-gradient">
+                    Agregar Nueva Banda
+                </div>
+                <div class="card-body">
+                    <form action="crear" method="POST">
+
+                        <!-- Nombre -->
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre de la Banda</label>
+                            <input type="text" class="form-control bg-dark text-light border-secondary" id="nombre" name="nombre" required>
+                        </div>
+
+                        <!-- País -->
+                        <div class="mb-3">
+                            <label for="pais" class="form-label">País de Origen</label>
+                            <input type="text" class="form-control bg-dark text-light border-secondary" id="pais" name="pais" required>
+                        </div>
+
+                        <!-- Género -->
+                        <div class="mb-3">
+                            <label for="genero" class="form-label">Género Musical</label>
+                            <input type="text" class="form-control bg-dark text-light border-secondary" id="genero" name="genero" required>
+                        </div>
+
+                        <!-- Imagen -->
+                        <div class="mb-3">
+                            <label for="imagen" class="form-label">URL de Imagen</label>
+                            <input type="url" class="form-control bg-dark text-light border-secondary" id="imagen" name="imagen" required>
+                            <div class="form-text text-secondary">Pegá un enlace directo a la imagen</div>
+                        </div>
+
+                        <!-- Botón -->
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-outline-light px-4 py-2">Agregar Banda</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

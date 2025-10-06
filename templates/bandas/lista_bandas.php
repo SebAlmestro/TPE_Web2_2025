@@ -1,8 +1,11 @@
-<?php include 'header.php'; ?>
+<?php include './templates/header.php'; ?>
 <head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/style.css">
 </head>
+
+<?php include './templates/bandas/form_alta_bandas.php'; ?>
+
 
 <div class="container py-5">
     <h2 class="text-center mb-5">Listado De Bandas</h2>
@@ -31,4 +34,4 @@
 </div>
 
 
-<?php include 'footer.php'; ?>
+<?php include './templates/footer.php'; ?>

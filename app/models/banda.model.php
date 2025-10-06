@@ -30,4 +30,11 @@ class BandaModel
 
         return $bandas;
     }
+    public function addBanda($nombre, $pais, $genero, $imagen){
+        $query = $this -> db->prepare('INSERT INTO `banda` (`id_banda`, `Nombre`, `Pais_origen`, `Genero`, `Imagen`) VALUES (null, ?, ?, ?, ?)');
+        $query -> execute([$nombre, $pais, $genero, $imagen]);
+
+        header("Location: /bandas");
+
+    }
 }

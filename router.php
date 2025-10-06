@@ -21,6 +21,14 @@ switch ($params[0]) {
         $controller = new BandaController();
         $controller->showBandas();
         break;
+    case 'crear':
+        $controller = new BandaController();
+        $controller->addBanda();
+        break;
+    case 'agregar': // <-- NUEVO
+        $controller = new BandaController();
+        $controller->showAgregarBanda();
+        break;
     default:
         echo "404 Page Not Found";
         break;

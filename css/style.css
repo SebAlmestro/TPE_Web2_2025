@@ -12,3 +12,50 @@ h2 {
     letter-spacing: 1px;
 }
 
+body {
+    background-color: #626477;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header,
+footer {
+    background: linear-gradient(180deg, #0f0f0f, #1c1c1c);
+    color: #fff;
+}
+
+.card {
+    background-color: #423c3a;
+    /* gris oscuro */
+    border: 1px solid #333;
+    color:#f1f1f1;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+}
+
+.btn-outline-light {
+    border-color: #f1f1f1;
+    color: #f1f1f1;
+}
+
+.btn-outline-light:hover {
+    background-color: #f1f1f1;
+    color: #1b1b1b;
+}
+
+.form-control {
+    background-color: #2a2a2a;
+    color: #fff;
+    border: 1px solid #444;
+}
+
+.form-control:focus {
+    background-color: #333;
+    color: #fff;
+    border-color: #777;
+    box-shadow: none;
+}

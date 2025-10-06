@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="css/style.css">
 <footer class="bg-dark text-light pt-4 pb-3 mt-5">
     <div class="container text-center text-md-start">
         <div class="row">
