@@ -12,7 +12,7 @@ class BandaModel
 
     public function getBanda($id)
     {
-        $query = $this->db->prepare('SELECT * FROM banda WHERE id = ?');
+        $query = $this->db->prepare('SELECT * FROM banda WHERE id_banda = ?');
         $query->execute([$id]);
         $banda = $query->fetch(PDO::FETCH_OBJ);
 

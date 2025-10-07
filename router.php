@@ -21,11 +21,21 @@ switch ($params[0]) {
         $controller = new BandaController();
         $controller->showBandas();
         break;
+    case 'banda':
+    $controller = new BandaController();
+    $id = $params[1] ?? null;
+    if ($id) {
+        $controller->showBanda($id);
+    } else {
+        echo "ID de banda no especificado";
+    }
+    //revisar y mejorar!!!!!!
+    break;
     case 'crear':
         $controller = new BandaController();
         $controller->addBanda();
         break;
-    case 'agregar': // <-- NUEVO
+    case 'agregar':
         $controller = new BandaController();
         $controller->showAgregarBanda();
         break;

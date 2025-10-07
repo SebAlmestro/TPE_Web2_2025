@@ -18,6 +18,17 @@ class BandaController {
         // se las mando a la vista
         $this->view->showBandas($bandas);
     }
+    function showBanda($id) {
+        $banda = $this->model->getBanda($id);
+
+        if (!$banda) {
+            $this->view->showError("⚠️ No se encontró la banda con ID $id");
+            return;
+        }
+
+        $this->view->showBanda($banda);
+    }
+
 
     function showAgregarBanda() {
         $this->view->showAgregarBanda();
