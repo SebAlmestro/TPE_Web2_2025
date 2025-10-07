@@ -17,7 +17,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg">
         <div class="container">
             <a class="navbar-brand fs-3 fw-bold text-uppercase" href="bandas">
-                ArgenRockk
+                ArgenRock
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Menú">
