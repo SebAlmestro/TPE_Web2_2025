@@ -37,4 +37,9 @@ class BandaModel
         header("Location: /bandas");
 
     }
+    public function deleteBanda($id){
+        $query = $this ->db ->prepare('DELETE FROM banda WHERE `banda`.`id_banda` = ?');
+        $query ->execute([$id]);
+        header("Location: /bandas");
+    }
 }

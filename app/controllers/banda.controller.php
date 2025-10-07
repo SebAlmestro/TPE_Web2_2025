@@ -47,5 +47,15 @@ class BandaController {
             $this->view->showError("Todos los campos son obligatorios");
         }
     }
+    function deleteBanda($id){
+        
+        $banda = $this->model->getBanda($id);
+        $this->model->deleteBanda($id);
+
+        // redirijo al home
+        header('Location: ' . BASE_URL);
+
+
+    }
 
 }

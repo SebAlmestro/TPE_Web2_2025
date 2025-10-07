@@ -25,8 +25,18 @@
                                 <h5 class="card-title"><?= $banda->Nombre ?></h5>
                                 <p class="card-text mb-2"><strong>Género:</strong> <?= $banda->Genero ?></p>
                                 <p class="card-text"><strong>País:</strong> <?= $banda->Pais_origen ?></p>
+
                             </div>
+
                         </a>
+                        <div class= "text-center mt-4"> 
+                        <form action="eliminar/<?= $banda->id_banda ?>" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-outline-light px-4 py-2">Eliminar</button>
+                        </form>
+                        </div>
+    
+
+
                     </div>
                 </div>
             <?php endforeach; ?>

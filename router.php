@@ -22,15 +22,15 @@ switch ($params[0]) {
         $controller->showBandas();
         break;
     case 'banda':
-    $controller = new BandaController();
-    $id = $params[1] ?? null;
-    if ($id) {
-        $controller->showBanda($id);
-    } else {
-        echo "ID de banda no especificado";
-    }
-    //revisar y mejorar!!!!!!
-    break;
+        $controller = new BandaController();
+        $id = $params[1] ?? null;
+        if ($id) {
+            $controller->showBanda($id);
+        } else {
+            echo "ID de banda no especificado";
+        }
+        //revisar y mejorar!!!!!!
+        break;
     case 'crear':
         $controller = new BandaController();
         $controller->addBanda();
@@ -38,6 +38,15 @@ switch ($params[0]) {
     case 'agregar':
         $controller = new BandaController();
         $controller->showAgregarBanda();
+        break;
+    case 'eliminar':
+        $controller = new BandaController();
+        $id = $params[1] ?? null;
+        if ($id) {
+            $controller->deleteBanda($id);
+        } else {
+            echo "No se recibió el ID de la banda a eliminar.";
+        }
         break;
     default:
         echo "404 Page Not Found";
