@@ -50,6 +50,10 @@ class BandaController {
     function deleteBanda($id){
         
         $banda = $this->model->getBanda($id);
+         if (!$id) {
+            return $this->view->showError("No existe la tarea con el id=$id");
+        }
+
         $this->model->deleteBanda($id);
 
         // redirijo al home
