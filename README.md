@@ -13,4 +13,4 @@ Participantes:
 
 Bilbao Francisco, franciscobilbao30@gmail.com
 
-Almestro Sebastián, sebalmestro@gmail.comsss
+Almestro Sebastián, sebalmestro@gmail.com
