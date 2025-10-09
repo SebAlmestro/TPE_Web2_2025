@@ -3,6 +3,8 @@ require_once './app/controllers/banda.controller.php';
 require_once './app/controllers/concierto.controller.php';
 require_once './app/controllers/auth.controller.php';
 
+$bandaController = new BandaController();
+
 
 // base_url para redirecciones y base tag
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
@@ -18,34 +20,33 @@ $params = explode('/', $action);
 
 switch ($params[0]) {
     case 'bandas':
-        $controller = new BandaController();
-        $controller->showBandas();
+        $bandaController->showBandas();
         break;
     case 'banda':
-        $controller = new BandaController();
-        $id = $params[1] ?? null;
-        if ($id) {
-            $controller->showBanda($id);
+        if (isset($params[1])) {
+            $bandaController->showBanda($params[1]);
         } else {
-            echo "ID de banda no especificado";
+            $this->view->showError("ID de banda no especificado.");
         }
-        //revisar y mejorar!!!!!!
         break;
     case 'crear':
-        $controller = new BandaController();
-        $controller->addBanda();
+        $bandaController->addBanda();
         break;
     case 'agregar':
-        $controller = new BandaController();
-        $controller->showAgregarBanda();
+        $bandaController->showAgregarBanda();
+        break;
+    case 'editar':
+        if (isset($params[1])) {
+            $bandaController->editarBanda($params[1]);
+        } else {
+            $this->view->showError("No se recibió el ID de la banda a editar.");
+        }
         break;
     case 'eliminar':
-        $controller = new BandaController();
-        $id = $params[1] ?? null;
-        if ($id) {
-            $controller->deleteBanda($id);
+        if (isset($params[1])) {
+            $bandaController->deleteBanda($params[1]);
         } else {
-            echo "No se recibió el ID de la banda a eliminar.";
+            $this->view->showError("No se recibió el ID de la banda a editar.");
         }
         break;
     default:
