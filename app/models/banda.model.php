@@ -42,4 +42,7 @@ class BandaModel
         $query ->execute([$id]);
         header("Location: /bandas");
     }
+    public function editarBanda($id){
+        
+    }
 }
