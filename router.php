@@ -4,6 +4,7 @@ require_once './app/controllers/concierto.controller.php';
 require_once './app/controllers/auth.controller.php';
 
 $bandaController = new BandaController();
+$view = new BandaView();
 
 
 // base_url para redirecciones y base tag
@@ -37,16 +38,26 @@ switch ($params[0]) {
         break;
     case 'editar':
         if (isset($params[1])) {
-            $bandaController->editarBanda($params[1]);
+            $bandaController->showEditarBanda($params[1]);
         } else {
-            $this->view->showError("No se recibió el ID de la banda a editar.");
+            $this->view->showError("Id de banda no especificado");
+        }
+        break;
+
+    case 'actualizar':
+        if (isset($params[1])) {
+            $bandaController->editarBanda($params[1]);
+        } else if (isset($_POST['id'])) {
+            $bandaController->editarBanda($_POST['id']);
+        } else {
+            echo "No se recibió el ID de la banda para actualizar.";
         }
         break;
     case 'eliminar':
         if (isset($params[1])) {
             $bandaController->deleteBanda($params[1]);
         } else {
-            $this->view->showError("No se recibió el ID de la banda a editar.");
+            echo "Id de banda a eliminar no especificado";
         }
         break;
     default:
