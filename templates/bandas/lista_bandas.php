@@ -5,9 +5,6 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<?php include './templates/bandas/form_alta_bandas.php'; ?>
-
-
 <div class="container py-5">
     <h2 class="text-center mb-5">Listado De Bandas</h2>
 
