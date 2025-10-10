@@ -1,3 +1,5 @@
+<?php include_once './templates/header.php'?>;
+
 <link rel="stylesheet" href="css/style.css">
 <div class="container mt-5 mb-5">
     <div class="row justify-content-center">
@@ -44,3 +46,4 @@
         </div>
     </div>
 </div>
+<?php include_once './templates/footer.php'?>;
