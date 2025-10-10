@@ -42,7 +42,9 @@ class BandaModel
         $query ->execute([$id]);
         header("Location: /bandas");
     }
-    public function editarBanda($id){
-        
-    }
+
+    public function editarBanda($id, $nombre, $pais, $genero, $imagen) {
+    $query = $this->db->prepare('UPDATE banda SET Nombre = ?, Pais_origen = ?, Genero = ?, Imagen = ? WHERE id_banda = ?');
+    $query->execute([$nombre, $pais, $genero, $imagen, $id]);
+}
 }
