@@ -17,6 +17,9 @@ class BandaView
     {
         include_once './templates/bandas/form_alta_bandas.php';
     }
+    public function showEditarBanda($banda){
+        include_once './templates/bandas/form_editar_bandas.phtml';
+    }
     public function showError($error)
     {
         echo "<h1>$error</h1>";
