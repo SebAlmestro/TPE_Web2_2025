@@ -34,6 +34,11 @@
                             <button type="submit" class="btn btn-outline-light px-4 py-2">Eliminar</button>
                         </form>
                         </div>
+                        <div class= "text-center mt-4"> 
+                        <form action="editar/<?= $banda->id_banda ?>" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-outline-light px-4 py-2">Editar</button>
+                        </form>
+                        </div>
     
 
 
