@@ -27,6 +27,9 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
+                        <a class="nav-link px-3" href="agregar">AddBanda</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link px-3" href="bandas">Bandas</a>
                     </li>
                     <li class="nav-item">
