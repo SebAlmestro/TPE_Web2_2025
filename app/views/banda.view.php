@@ -7,15 +7,14 @@ class BandaView
         $count = count($bandas);
         // NOTA: el template va a poder acceder a todas las variables y
         // constantes que tienen alcance en esta funcion
-        require_once './templates/bandas/lista_bandas.php';
+        require_once './templates/bandas/lista_bandas.phtml';
     }
     public function showBanda($banda) {
         $bandaData = $banda;
-        require './templates/bandas/banda_particular.php';
+        require './templates/bandas/banda_particular.phtml';
     }
-    public function showAgregarBanda()
-    {
-        include_once './templates/bandas/form_alta_bandas.php';
+    public function showAgregarBanda(){
+        include_once './templates/bandas/form_alta_bandas.phtml';
     }
     public function showEditarBanda($banda){
         include_once './templates/bandas/form_editar_bandas.phtml';
