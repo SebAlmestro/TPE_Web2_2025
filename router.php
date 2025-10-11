@@ -4,6 +4,7 @@ require_once './app/controllers/concierto.controller.php';
 require_once './app/controllers/auth.controller.php';
 
 $bandaController = new BandaController();
+$conciertoController = new ConciertoController();
 $view = new BandaView();
 
 
@@ -60,6 +61,10 @@ switch ($params[0]) {
             echo "Id de banda a eliminar no especificado";
         }
         break;
+    case 'conciertos':
+        $conciertoController->showConciertos();
+        break;
+
     default:
         echo "404 Page Not Found";
         break;
