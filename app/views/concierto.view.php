@@ -8,4 +8,12 @@ class ConciertoView
         // constantes que tienen alcance en esta funcion
         require_once './templates/conciertos/lista_conciertos.phtml';
     }
+    public function showConcierto($concierto) {
+        $conciertoData = $concierto;
+        require './templates/conciertos/concierto_particular.phtml';
+    }
+    public function showError($error)
+    {
+        echo "<h1>$error</h1>";
+    }
 }

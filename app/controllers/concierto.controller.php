@@ -19,4 +19,15 @@ class ConciertoController{
         // se las mando a la vista
         $this->view->showConciertos($conciertos);
     }
+    function showConcierto($id)
+    {
+        $concierto = $this->model->getConcierto($id);
+
+        if (!$concierto) {
+            $this->view->showError("⚠️ No se encontró el concierto con ID $id");
+            return;
+        }
+
+        $this->view->showConcierto($concierto);
+    }
 }

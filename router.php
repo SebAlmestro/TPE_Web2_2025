@@ -19,14 +19,14 @@ if (!empty($_GET['action'])) {
 
 // parsea la accion para separar accion real de parametros
 $params = explode('/', $action);
-
-switch ($params[0]) {
-    case 'bandas':
+if($params[0] === "bandas"){
+    if (!isset($params[1])) {
         $bandaController->showBandas();
-        break;
+    }
+switch ($params[1]) {
     case 'banda':
-        if (isset($params[1])) {
-            $bandaController->showBanda($params[1]);
+        if (isset($params[2])) {
+            $bandaController->showBanda($params[2]);
         } else {
             $this->view->showError("ID de banda no especificado.");
         }
@@ -38,16 +38,16 @@ switch ($params[0]) {
         $bandaController->showAgregarBanda();
         break;
     case 'editar':
-        if (isset($params[1])) {
-            $bandaController->showEditarBanda($params[1]);
+        if (isset($params[2])) {
+            $bandaController->showEditarBanda($params[2]);
         } else {
             $this->view->showError("Id de banda no especificado");
         }
         break;
 
     case 'actualizar':
-        if (isset($params[1])) {
-            $bandaController->editarBanda($params[1]);
+        if (isset($params[2])) {
+            $bandaController->editarBanda($params[2]);
         } else if (isset($_POST['id'])) {
             $bandaController->editarBanda($_POST['id']);
         } else {
@@ -55,17 +55,32 @@ switch ($params[0]) {
         }
         break;
     case 'eliminar':
-        if (isset($params[1])) {
-            $bandaController->deleteBanda($params[1]);
+        if (isset($params[2])) {
+            $bandaController->deleteBanda($params[2]);
         } else {
             echo "Id de banda a eliminar no especificado";
         }
         break;
-    case 'conciertos':
-        $conciertoController->showConciertos();
-        break;
-
     default:
         echo "404 Page Not Found";
         break;
+}
+}
+if ($params[0] === "conciertos") {
+
+    if (!isset($params[1])) {
+        $conciertoController->showConciertos();
+        exit;
+    }
+
+    switch ($params[1]) {
+        case 'concierto':
+            if (isset($params[2])) {
+                $conciertoController->showConcierto($params[2]);
+            } else {
+                $this->view->showError("ID de concierto no especificado.");
+            }
+            break;
+    
+    }
 }

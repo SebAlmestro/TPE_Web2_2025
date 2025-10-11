@@ -19,5 +19,20 @@ class ConciertoModel{
 
         return $conciertos;
     }
+    public function getConcierto($id)
+    {
+        $query = $this->db->prepare('SELECT * FROM concierto WHERE id_concierto = ?');
+        $query->execute([$id]);
+        $concierto = $query->fetch(PDO::FETCH_OBJ);
+
+        return $concierto;
+    }
+    public function addConcierto($fecha, $horario, $lugar, $ciudad, $id_banda){
+        $query = $this -> db->prepare('INSERT INTO `concierto` (`id_concierto`, `Fecha`, `Horario`, `Lugar`, `Ciudad`, `id_banda`) VALUES (null, ?, ?, ?, ?, ?)');
+        $query -> execute([$fecha, $horario, $lugar, $ciudad, $id_banda]);
+
+        header("Location: /conciertos");
+
+    }
 
 }

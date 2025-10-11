@@ -1,0 +1,48 @@
+<?php include_once './templates/header.phtml'?>;
+
+<link rel="stylesheet" href="css/style.css">
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8">
+            <div class="card shadow-lg bg-dark text-light border-0">
+                <div class="card-header text-center fs-4 fw-bold bg-gradient">
+                    Agregar Nuevo Concierto
+                </div>
+                <div class="card-body">
+                    <form action="conciertos/crear" method="POST">
+
+                        <div class="mb-3">
+                            <label for="fecha" class="form-label">Fecha</label>
+                            <input type="text" class="form-control bg-dark text-light border-secondary" id="fecha" name="fecha" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="pais" class="form-label">Horario</label>
+                            <input type="time" class="form-control bg-dark text-light border-secondary" id="horario" name="horario" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="lugar" class="form-label">Lugar</label>
+                            <input type="text" class="form-control bg-dark text-light border-secondary" id="lugar" name="lugar" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="ciudad" class="form-label">Ciudad</label>
+                            <input type="text" class="form-control bg-dark text-light border-secondary" id="ciudad" name="ciudad" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="id_banda" class="form-label">Id_banda</label>
+                            <input type="number" class="form-control bg-dark text-light border-secondary" id="id_banda" name="id_banda" required>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-outline-light px-4 py-2">Agregar Concierto</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php include_once './templates/footer.phtml'?>;

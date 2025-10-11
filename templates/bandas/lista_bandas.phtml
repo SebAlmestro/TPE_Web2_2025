@@ -13,7 +13,7 @@
             <?php foreach ($bandas as $banda): ?>
                 <div class="col-12 col-md-6 mb-4 d-flex justify-content-center">
                     <div class="card shadow-lg border-0" style="width: 100%; max-width: 350px; transition: 0.3s;">
-                        <a href="banda/<?= $banda->id_banda ?>" style="text-decoration: none; color: inherit;">
+                        <a href="bandas/banda/<?= $banda->id_banda ?>" style="text-decoration: none; color: inherit;">
                             <img src="<?= $banda->Imagen ?>"
                                 class="card-img-top"
                                 alt="<?= $banda->Nombre ?>"
@@ -27,12 +27,12 @@
 
                         </a>
                         <div class= "text-center mt-4"> 
-                        <form action="eliminar/<?= $banda->id_banda ?>" method="POST" style="display:inline;">
+                        <form action="bandas/eliminar/<?= $banda->id_banda ?>" method="POST" style="display:inline;">
                             <button type="submit" class="btn btn-outline-light px-4 py-2">Eliminar</button>
                         </form>
                         </div>
                         <div class= "text-center mt-4"> 
-                        <form action="editar/<?= $banda->id_banda ?>" method="POST" style="display:inline;">
+                        <form action="bandas/editar/<?= $banda->id_banda ?>" method="POST" style="display:inline;">
                             <button type="submit" class="btn btn-outline-light px-4 py-2">Editar</button>
                         </form>
                         </div>
