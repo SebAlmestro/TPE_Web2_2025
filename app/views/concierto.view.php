@@ -6,6 +6,6 @@ class ConciertoView
         $count = count($conciertos);
         // NOTA: el template va a poder acceder a todas las variables y
         // constantes que tienen alcance en esta funcion
-        require_once './templates/conciertos/lista_conciertos.php';
+        require_once './templates/conciertos/lista_conciertos.phtml';
     }
 }
