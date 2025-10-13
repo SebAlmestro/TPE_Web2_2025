@@ -61,4 +61,34 @@ class ConciertoController{
 
         header('Location: ' . BASE_URL . "conciertos");
     }
+
+    function showEditarConcierto($id)
+    {
+        $concierto = $this->model->getConcierto($id);
+
+        if (!$concierto) {
+            $this->view->showError("⚠️ No se encontró la banda con ID $id");
+            return;
+        }
+
+        $this->view->showEditarConcierto($concierto);
+    }
+    function editarConcierto($id)
+    {
+        $conciertoActual = $this->model->getConcierto($id);
+        if ($_SERVER['REQUEST_METHOD'] === "POST") {
+            $fecha = !empty($_POST['fecha']) ? $_POST['fecha'] : $conciertoActual->Fecha;
+            $horario   = !empty($_POST['horario']) ? $_POST['horario'] : $conciertoActual->Horario;
+            $lugar = !empty($_POST['lugar']) ? $_POST['lugar'] : $conciertoActual->Lugar;
+            $ciudad = !empty($_POST['ciudad']) ? $_POST['ciudad'] : $conciertoActual->Ciudad;
+            $id_banda = !empty($_POST['id_banda']) ? $_POST['id_banda'] : $conciertoActual->Id_banda;
+            $this->model->editarConcierto($id, $fecha, $horario, $lugar, $ciudad, $id_banda);
+            header("Location: " . BASE_URL . "conciertos");
+        } else {
+            $this->view->showError("Error al editar concierto");
+        }
+        //forma de hacer el if de forma mas reducida,
+        //si lo que viene por post en nombre no esta vacio, entonces
+        //guardo nombre de la banda que ya estaba accediendo al modelo getbanda;
+    }
 }

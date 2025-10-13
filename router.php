@@ -94,5 +94,21 @@ if ($params[0] === "conciertos") {
                 echo "Id de concierto a eliminar no especificado";
             }
             break;
+        case 'editar':
+            if (isset($params[2])) {
+                $conciertoController->showEditarConcierto($params[2]);
+            } else {
+                $this->view->showError("Id de banda no especificado");
+            }
+            break;
+        case 'actualizar':
+            if (isset($params[2])) {
+                $conciertoController->editarConcierto($params[2]);
+            } else if (isset($_POST['id'])) {
+                $conciertoController->editarConcierto($_POST['id']);
+            } else {
+                echo "No se recibió el ID del concierto para actualizar.";
+            }
+            break;
     }
 }

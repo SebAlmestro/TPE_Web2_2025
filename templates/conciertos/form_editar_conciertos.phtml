@@ -1,0 +1,48 @@
+<?php include './templates/header.phtml'; ?>
+<link rel="stylesheet" href="css/style.css">
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8">
+            <div class="card shadow-lg bg-dark text-light border-0">
+                <div class="card-header text-center fs-4 fw-bold bg-gradient">
+                    Editar Concierto
+                </div>
+                <div class="card-body">
+                    <form action="conciertos/actualizar/<?= $concierto->id_concierto ?>" method="POST">
+                        <input type="hidden" name="id" value="<?= $concierto->id_concierto ?>">
+
+                        <div class="mb-3">
+                            <label for="fecha" class="form-label">Nueva Fecha</label>
+                            <input type="date" class="form-control bg-dark text-light border-secondary" id="fecha" name="fecha">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="horario" class="form-label">Nuevo Horario</label>
+                            <input type="time" class="form-control bg-dark text-light border-secondary" id="horario" name="horario">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="lugar" class="form-label">Nuevo Lugar</label>
+                            <input type="text" class="form-control bg-dark text-light border-secondary" id="lugar" name="lugar">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="ciudad" class="form-label">Nueva Ciudad</label>
+                            <input type="text" class="form-control bg-dark text-light border-secondary" id="ciudad" name="ciudad">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="id_banda" class="form-label">Nuevo ID de Banda</label>
+                            <input type="text" class="form-control bg-dark text-light border-secondary" id="id_banda" name="id_banda">
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-outline-light px-4 py-2">Editar Banda</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php include './templates/footer.phtml'; ?>

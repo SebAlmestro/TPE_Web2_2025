@@ -45,4 +45,9 @@ class ConciertoModel
         $query->execute([$id]);
         header("Location: /conciertos");
     }
+    public function editarConcierto($id, $fecha, $horario, $lugar, $ciudad, $id_banda)
+    {
+        $query = $this->db->prepare('UPDATE concierto SET Fecha = ?, Horario = ?, Lugar = ?, Ciudad = ? WHERE id_banda = ?');
+        $query->execute([$id, $fecha, $horario, $lugar, $ciudad, $id_banda]);
+    }
 }
