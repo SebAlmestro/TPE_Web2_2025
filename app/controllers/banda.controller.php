@@ -38,6 +38,7 @@ class BandaController
     {
         $this->view->showAgregarBanda();
     }
+    
 
     function addBanda()
     {
@@ -84,7 +85,7 @@ class BandaController
     function editarBanda($id)
     {
         $bandaActual = $this->model->getBanda($id);
-        if ( $_SERVER['REQUEST_METHOD'] === "POST" ) {
+        if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $nombre = !empty($_POST['nombre']) ? $_POST['nombre'] : $bandaActual->Nombre;
             $pais   = !empty($_POST['pais']) ? $_POST['pais'] : $bandaActual->Pais_origen;
             $genero = !empty($_POST['genero']) ? $_POST['genero'] : $bandaActual->Genero;

@@ -30,4 +30,35 @@ class ConciertoController{
 
         $this->view->showConcierto($concierto);
     }
+    function showAgregarConcierto()
+    {
+        $this->view->showAgregarConcierto();
+    }
+    function addConcierto(){
+        if (!empty($_POST['fecha']) && !empty($_POST['horario']) && !empty($_POST['lugar'])
+        && !empty($_POST['ciudad'] && !empty($_POST['id_banda']))){
+            $fecha = $_POST['fecha'];
+            $horario = $_POST['horario'];
+            $lugar = $_POST['lugar'];
+            $ciudad = $_POST['ciudad'];
+            $id_banda = $_POST['id_banda'];
+
+            $this->model->addConcierto($fecha, $horario, $lugar, $ciudad, $id_banda);
+            header("Location: " . BASE_URL . "conciertos");
+        } else {
+            $this->view->showError("Todos los campos son obligatorios");
+        }
+    }
+    function deleteConcierto($id)
+    {
+
+        $concierto = $this->model->getConcierto($id);
+        if (!$concierto) {
+            return $this->view->showError("No existe la tarea con el id=$id");
+        }
+
+        $this->model->deleteConcierto($id);
+
+        header('Location: ' . BASE_URL . "conciertos");
+    }
 }

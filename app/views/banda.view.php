@@ -5,8 +5,6 @@ class BandaView
     public function showBandas($bandas)
     {
         $count = count($bandas);
-        // NOTA: el template va a poder acceder a todas las variables y
-        // constantes que tienen alcance en esta funcion
         require_once './templates/bandas/lista_bandas.phtml';
     }
     public function showBanda($banda) {
