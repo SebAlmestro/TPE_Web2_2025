@@ -98,6 +98,7 @@ ALTER TABLE `banda`
 --
 ALTER TABLE `concierto`
   ADD PRIMARY KEY (`id_concierto`),
+  ADD UNIQUE KEY `id_banda` (`id_banda`);
 
 --
 -- Indices de la tabla `usuario`
