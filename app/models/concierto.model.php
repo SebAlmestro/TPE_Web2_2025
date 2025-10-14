@@ -34,9 +34,9 @@ class ConciertoModel
             'INSERT INTO concierto (Fecha, Horario, Lugar, Ciudad, id_banda)
             VALUES (?, ?, ?, ?, ?)'
         );
-    
+
         $query->execute([$fecha, $horario, $lugar, $ciudad, $id_banda]);
-    
+
         header("Location: " . BASE_URL . "conciertos");
     }
     public function deleteConcierto($id)
@@ -47,7 +47,7 @@ class ConciertoModel
     }
     public function editarConcierto($id, $fecha, $horario, $lugar, $ciudad, $id_banda)
     {
-        $query = $this->db->prepare('UPDATE concierto SET Fecha = ?, Horario = ?, Lugar = ?, Ciudad = ? WHERE id_banda = ?');
-        $query->execute([$id, $fecha, $horario, $lugar, $ciudad, $id_banda]);
+        $query = $this->db->prepare('UPDATE concierto SET Fecha = ?, Horario = ?, Lugar = ?, Ciudad = ?, id_banda = ? WHERE id_concierto = ?');
+        $query->execute([$fecha, $horario, $lugar, $ciudad, $id_banda, $id]);
     }
 }

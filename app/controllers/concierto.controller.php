@@ -81,7 +81,7 @@ class ConciertoController{
             $horario   = !empty($_POST['horario']) ? $_POST['horario'] : $conciertoActual->Horario;
             $lugar = !empty($_POST['lugar']) ? $_POST['lugar'] : $conciertoActual->Lugar;
             $ciudad = !empty($_POST['ciudad']) ? $_POST['ciudad'] : $conciertoActual->Ciudad;
-            $id_banda = !empty($_POST['id_banda']) ? $_POST['id_banda'] : $conciertoActual->Id_banda;
+            $id_banda = !empty($_POST['id_banda']) ? $_POST['id_banda'] : $conciertoActual->id_banda;
             $this->model->editarConcierto($id, $fecha, $horario, $lugar, $ciudad, $id_banda);
             header("Location: " . BASE_URL . "conciertos");
         } else {
