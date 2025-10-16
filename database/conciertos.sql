@@ -30,10 +30,8 @@ INSERT INTO `concierto` (`id_concierto`, `Fecha`, `Horario`, `Lugar`, `Ciudad`, 
 -- Tabla usuario (sin cambios)
 CREATE TABLE `usuario` (
   `id_usuario` int(11) NOT NULL,
-  `Nombre` varchar(250) NOT NULL,
-  `Apellido` varchar(250) NOT NULL,
-  `DNI` int(11) NOT NULL,
-  `Rol` varchar(50) NOT NULL
+  `usuario` varchar(50) NOT NULL,
+  `contraseña` char(72) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- PRIMARY KEYS y AUTO_INCREMENT
@@ -42,9 +40,8 @@ ALTER TABLE `banda`
 ALTER TABLE `concierto`
   ADD PRIMARY KEY (`id_concierto`);
 ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`id_usuario`),
-  ADD UNIQUE KEY `DNI` (`DNI`);
-
+  ADD PRIMARY KEY (`id_usuario`);
+  
 ALTER TABLE `banda`
   MODIFY `id_banda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 ALTER TABLE `concierto`
@@ -59,3 +56,4 @@ ALTER TABLE `concierto`
 -- UNIQUE COMPUESTO para evitar duplicados exactos
 ALTER TABLE `concierto`
   ADD CONSTRAINT `unique_concierto_evento` UNIQUE (`Fecha`, `Horario`, `id_banda`);
+

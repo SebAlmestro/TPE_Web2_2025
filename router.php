@@ -1,12 +1,13 @@
 <?php
 require_once './app/controllers/banda.controller.php';
 require_once './app/controllers/concierto.controller.php';
-require_once './app/controllers/auth.controller.php';
+require_once './app/controllers/user.controller.php';
 
 $bandaController = new BandaController();
 $conciertoController = new ConciertoController();
 $view = new BandaView();
 
+session_start();
 
 // base_url para redirecciones y base tag
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
