@@ -28,12 +28,16 @@
                         </a>
                         <div class= "text-center mt-4"> 
                         <form action="bandas/eliminar/<?= $banda->id_banda ?>" method="POST" style="display:inline;">
+                        <?php if (isset($_SESSION['usuario'])): ?>
                             <button type="submit" class="btn btn-outline-light px-4 py-2">Eliminar</button>
+                        <?php endif; ?>
                         </form>
                         </div>
                         <div class= "text-center mt-4"> 
                         <form action="bandas/editar/<?= $banda->id_banda ?>" method="POST" style="display:inline;">
+                        <?php if (isset($_SESSION['usuario'])): ?>
                             <button type="submit" class="btn btn-outline-light px-4 py-2">Editar</button>
+                        <?php endif; ?>
                         </form>
                         </div>
     

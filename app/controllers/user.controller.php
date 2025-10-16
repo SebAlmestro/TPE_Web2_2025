@@ -28,7 +28,7 @@ class UserController {
             $contraseniaEncontrada = $usuarioEncontrado['contraseña'];
 
             if(password_verify($contraseña, $contraseniaEncontrada)){ // Comparamos la contraseña hasheada guardada y el hash de la nueva.
-                $_SESSION['nusuario'] = $usuario;
+                $_SESSION['usuario'] = $usuario;
                 header("Location: " . BASE_URL . "bandas");
             } else {
                 $this->view->showError("Contraseña Incorrecta");

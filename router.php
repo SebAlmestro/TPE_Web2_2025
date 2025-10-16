@@ -13,6 +13,13 @@ session_start();
 // base_url para redirecciones y base tag
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
+function checkSession() {
+    if (!isset($_SESSION['usuario'])) {
+        header("Location: " . BASE_URL . "bandas/login");
+        die();
+    }
+}
+
 // accion por defecto si no se envia ninguna
 $action = 'bandas';
 if (!empty($_GET['action'])) {
@@ -35,12 +42,15 @@ if ($params[0] === "bandas") {
             }
             break;
         case 'crear':
+            checkSession();
             $bandaController->addBanda();
             break;
         case 'agregar':
+            checkSession();
             $bandaController->showAgregarBanda();
             break;
         case 'editar':
+            checkSession();
             if (isset($params[2])) {
                 $bandaController->showEditarBanda($params[2]);
             } else {
@@ -48,6 +58,7 @@ if ($params[0] === "bandas") {
             }
             break;
         case 'actualizar':
+            checkSession();
             if (isset($params[2])) {
                 $bandaController->editarBanda($params[2]);
             } else if (isset($_POST['id'])) {
@@ -57,6 +68,7 @@ if ($params[0] === "bandas") {
             }
             break;
         case 'eliminar':
+            checkSession();
             if (isset($params[2])) {
                 $bandaController->deleteBanda($params[2]);
             } else {
@@ -96,12 +108,15 @@ if ($params[0] === "conciertos") {
             }
             break;
         case 'agregar':
+            checkSession();
             $conciertoController->showAgregarConcierto();
             break;
         case 'crear':
+            checkSession();
             $conciertoController->addConcierto();
             break;
         case 'eliminar':
+            checkSession();
             if (isset($params[2])) {
                 $conciertoController->deleteConcierto($params[2]);
             } else {
@@ -109,6 +124,7 @@ if ($params[0] === "conciertos") {
             }
             break;
         case 'editar':
+            checkSession();
             if (isset($params[2])) {
                 $conciertoController->showEditarConcierto($params[2]);
             } else {
@@ -116,6 +132,7 @@ if ($params[0] === "conciertos") {
             }
             break;
         case 'actualizar':
+            checkSession();
             if (isset($params[2])) {
                 $conciertoController->editarConcierto($params[2]);
             } else if (isset($_POST['id'])) {

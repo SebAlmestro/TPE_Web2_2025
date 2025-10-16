@@ -13,6 +13,13 @@ class BandaController
         $this->view = new BandaView();
     }
 
+    private function verificarSesion() {
+        if (!isset($_SESSION['usuario'])) {
+            header("Location: " . BASE_URL . "bandas");
+            die();
+        }
+    }
+
     function showBandas()
     {
         // pido las tareas al modelo
@@ -36,12 +43,14 @@ class BandaController
 
     function showAgregarBanda()
     {
+        $this->verificarSesion();
         $this->view->showAgregarBanda();
     }
     
 
     function addBanda()
     {
+        $this->verificarSesion();
         if (
             !empty($_POST['nombre']) && !empty($_POST['pais']) && !empty($_POST['genero'])
             && !empty($_POST['imagen'])
@@ -59,6 +68,7 @@ class BandaController
     }
     function deleteBanda($id)
     {
+        $this->verificarSesion();
 
         $banda = $this->model->getBanda($id);
         if (!$banda) {
@@ -73,6 +83,7 @@ class BandaController
 
     function showEditarBanda($id)
     {
+        $this->verificarSesion();
         $banda = $this->model->getBanda($id);
 
         if (!$banda) {
@@ -84,6 +95,7 @@ class BandaController
     }
     function editarBanda($id)
     {
+        $this->verificarSesion();
         $bandaActual = $this->model->getBanda($id);
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $nombre = !empty($_POST['nombre']) ? $_POST['nombre'] : $bandaActual->Nombre;

@@ -11,14 +11,15 @@
                 <div class="card-body">
                     <form action="bandas/ingresar" method="POST">
                         <div class="mb-3">
-                            <label for="nombre" class="form-label">Usuario</label>
-                            <input type="text" class="form-control bg-dark text-light border-secondary" id="nombre" name="nombre" required>
+                            <label class="form-label">Usuario</label>
+                            <input type="text" class="form-control bg-dark text-light border-secondary" name="usuario" required>
                         </div>
 
                         <div class="mb-3">
-                            <label for="pais" class="form-label">Contraseña</label>
-                            <input type="text" class="form-control bg-dark text-light border-secondary" id="pais" name="pais" required>
+                            <label class="form-label">Contraseña</label>
+                            <input type="password" class="form-control bg-dark text-light border-secondary" name="contraseña" required>
                         </div>
+
                         <div class="text-center mt-4">
                             <button type="submit" class="btn btn-outline-light px-4 py-2">Ingresar</button>
                         </div>

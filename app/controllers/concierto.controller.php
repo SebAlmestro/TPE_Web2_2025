@@ -11,6 +11,12 @@ class ConciertoController{
         $this->model = new ConciertoModel();
         $this->view = new ConciertoView();
     }
+    private function verificarSesion() {
+        if (!isset($_SESSION['usuario'])) {
+            header("Location: " . BASE_URL . "bandas");
+            die();
+        }
+    }
     function showConciertos()
     {
         // pido las tareas al modelo
@@ -32,9 +38,11 @@ class ConciertoController{
     }
     function showAgregarConcierto()
     {
+        $this->verificarSesion();
         $this->view->showAgregarConcierto();
     }
     function addConcierto(){
+        $this->verificarSesion();
         if (!empty($_POST['fecha']) && !empty($_POST['horario']) && !empty($_POST['lugar'])
         && !empty($_POST['ciudad'] && !empty($_POST['id_banda']))){
             $fecha = $_POST['fecha'];
@@ -51,6 +59,7 @@ class ConciertoController{
     }
     function deleteConcierto($id)
     {
+        $this->verificarSesion();
 
         $concierto = $this->model->getConcierto($id);
         if (!$concierto) {
@@ -64,6 +73,7 @@ class ConciertoController{
 
     function showEditarConcierto($id)
     {
+        $this->verificarSesion();
         $concierto = $this->model->getConcierto($id);
 
         if (!$concierto) {
@@ -75,6 +85,7 @@ class ConciertoController{
     }
     function editarConcierto($id)
     {
+        $this->verificarSesion();
         $conciertoActual = $this->model->getConcierto($id);
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $fecha = !empty($_POST['fecha']) ? $_POST['fecha'] : $conciertoActual->Fecha;
