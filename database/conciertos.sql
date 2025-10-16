@@ -34,7 +34,7 @@ CREATE TABLE `usuario` (
   `contraseña` char(72) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `usuario` (`id_usuario`, `usuario`, `contraseña`) VALUES (NULL, 'webadmin', '$2y$10$xy0oRTZSrZSGn5A5t2c/dOQ0C5WpfQPwZvvKpvYn23i65JrRjgSuy');
+INSERT INTO `usuario` (`id_usuario`, `usuario`, `contraseña`) VALUES (1, 'webadmin', '$2y$10$xy0oRTZSrZSGn5A5t2c/dOQ0C5WpfQPwZvvKpvYn23i65JrRjgSuy');
 
 -- PRIMARY KEYS y AUTO_INCREMENT
 ALTER TABLE `banda`
