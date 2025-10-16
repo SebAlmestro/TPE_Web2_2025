@@ -5,6 +5,7 @@ require_once './app/controllers/user.controller.php';
 
 $bandaController = new BandaController();
 $conciertoController = new ConciertoController();
+$userController = new UserController();
 $view = new BandaView();
 
 session_start();
@@ -62,6 +63,18 @@ if ($params[0] === "bandas") {
                 echo "Id de banda a eliminar no especificado";
             }
             break;
+
+        //parte de usuarios
+        case 'login':
+            $userController->showIniciarSesion();
+            break;
+        case 'ingresar':
+            $userController->IniciarSesion();
+            break;
+        case 'logout':
+            $userController->cerrarSesion();
+            break;
+
         default:
             echo "404 Page Not Found";
             break;

@@ -7,7 +7,7 @@ Además, se contempla la existencia de una tabla de usuarios, pensada para la ge
 
 DER:
 
-[![Conciertos.png](https://i.postimg.cc/fRBzZdQc/Conciertos.png)](https://postimg.cc/cvtyBrHC)
+[![imagen-2025-10-16-172122071.png](https://i.postimg.cc/K8dZ1bkH/imagen-2025-10-16-172122071.png)](https://postimg.cc/v4tRKpvr)
 
 Participantes:
 
