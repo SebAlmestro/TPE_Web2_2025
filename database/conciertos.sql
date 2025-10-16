@@ -24,7 +24,7 @@ CREATE TABLE `concierto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `concierto` (`id_concierto`, `Fecha`, `Horario`, `Lugar`, `Ciudad`, `id_banda`) VALUES
-(1, '2026-02-04', '20:00:00', 'Estadio Monumental, River Plate.', 'Nuñez, Argentina', 3),
+(1, '2026-02-04', '20:00:00', 'Estadio Monumental, River Plate.', 'Nuñez, Argentina', 1),
 (2, '2025-12-12', '21:00:00', 'Movistar Arena', 'Villa Crespo, Argentina', 2);
 
 -- Tabla usuario (sin cambios)
@@ -33,6 +33,8 @@ CREATE TABLE `usuario` (
   `usuario` varchar(50) NOT NULL,
   `contraseña` char(72) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `usuario` (`id_usuario`, `usuario`, `contraseña`) VALUES (NULL, 'webadmin', '$2y$10$xy0oRTZSrZSGn5A5t2c/dOQ0C5WpfQPwZvvKpvYn23i65JrRjgSuy');
 
 -- PRIMARY KEYS y AUTO_INCREMENT
 ALTER TABLE `banda`
