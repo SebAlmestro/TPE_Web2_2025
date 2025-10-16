@@ -58,4 +58,4 @@ ALTER TABLE `concierto`
 
 -- UNIQUE COMPUESTO para evitar duplicados exactos
 ALTER TABLE `concierto`
-  ADD CONSTRAINT `unique_concierto_evento` UNIQUE (`Fecha`, `Horario`, `Lugar`, `id_banda`);
+  ADD CONSTRAINT `unique_concierto_evento` UNIQUE (`Fecha`, `Horario`, `id_banda`);
