@@ -38,13 +38,18 @@
 
                         <div class="text-center mt-3">
                             <form action="conciertos/eliminar/<?= $concierto->id_concierto ?>" method="POST" style="display:inline;">
-                                <button type="submit" class="btn btn-outline-danger px-3 py-1">Eliminar</button>
+                                <?php if (isset($_SESSION['usuario'])): ?>
+                                    <button type="submit" class="btn btn-outline-danger px-3 py-1">Eliminar</button>
+                                <?php endif; ?>
                             </form>
+
                         </div>
 
                         <div class="text-center mt-2 mb-3">
                             <form action="conciertos/editar/<?= $concierto->id_concierto ?>" method="POST" style="display:inline;">
-                                <button type="submit" class="btn btn-outline-light px-3 py-1">Editar</button>
+                                <?php if (isset($_SESSION['usuario'])): ?>
+                                    <button type="submit" class="btn btn-outline-light px-3 py-1">Editar</button>
+                                <?php endif; ?>
                             </form>
                         </div>
                     </div>
