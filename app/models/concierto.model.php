@@ -2,17 +2,18 @@
 
 class ConciertoModel
 {
-    private $db;
+    private $PDO;
 
-    function __construct()
-    {
-
-        $this->db = new PDO('mysql:host=localhost;dbname=conciertos;charset=utf8', 'root', '');
-    }
+    
+    public function __construct () {
+        include_once 'config/config.php';
+        $conex = new db(); // Instacia de la clase DB
+        $this->PDO = $conex->conexion(); // Metodo conexion.
+    } // El constructor crea la conexion a la BD y la guarda en el PDO
     public function getConciertos()
     {
 
-        $query = $this->db->prepare('SELECT * FROM concierto');
+        $query = $this->PDO->prepare('SELECT * FROM concierto');
         $query->execute();
 
 
@@ -22,7 +23,7 @@ class ConciertoModel
     }
     public function getConcierto($id)
     {
-        $query = $this->db->prepare('SELECT * FROM concierto WHERE id_concierto = ?');
+        $query = $this->PDO->prepare('SELECT * FROM concierto WHERE id_concierto = ?');
         $query->execute([$id]);
         $concierto = $query->fetch(PDO::FETCH_OBJ);
 
@@ -30,7 +31,7 @@ class ConciertoModel
     }
     public function addConcierto($fecha, $horario, $lugar, $ciudad, $id_banda)
     {
-        $query = $this->db->prepare(
+        $query = $this->PDO->prepare(
             'INSERT INTO concierto (Fecha, Horario, Lugar, Ciudad, id_banda)
             VALUES (?, ?, ?, ?, ?)'
         );
@@ -41,13 +42,13 @@ class ConciertoModel
     }
     public function deleteConcierto($id)
     {
-        $query = $this->db->prepare('DELETE FROM concierto WHERE `concierto`.`id_concierto` = ?');
+        $query = $this->PDO->prepare('DELETE FROM concierto WHERE `concierto`.`id_concierto` = ?');
         $query->execute([$id]);
         header("Location: /conciertos");
     }
     public function editarConcierto($id, $fecha, $horario, $lugar, $ciudad, $id_banda)
     {
-        $query = $this->db->prepare('UPDATE concierto SET Fecha = ?, Horario = ?, Lugar = ?, Ciudad = ?, id_banda = ? WHERE id_concierto = ?');
+        $query = $this->PDO->prepare('UPDATE concierto SET Fecha = ?, Horario = ?, Lugar = ?, Ciudad = ?, id_banda = ? WHERE id_concierto = ?');
         $query->execute([$fecha, $horario, $lugar, $ciudad, $id_banda, $id]);
     }
 }
