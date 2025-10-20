@@ -33,7 +33,7 @@ class BandaController
         $banda = $this->model->getBanda($id);
 
         if (!$banda) {
-            $this->view->showError("⚠️ No se encontró la banda con ID $id");
+            $this->view->showError("No se encontró la banda con ID $id");
             return;
         }
 
@@ -87,7 +87,7 @@ class BandaController
         $banda = $this->model->getBanda($id);
 
         if (!$banda) {
-            $this->view->showError("⚠️ No se encontró la banda con ID $id");
+            $this->view->showError("No se encontró la banda con ID $id");
             return;
         }
 

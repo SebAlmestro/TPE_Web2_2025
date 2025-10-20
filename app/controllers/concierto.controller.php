@@ -30,7 +30,7 @@ class ConciertoController{
         $concierto = $this->model->getConcierto($id);
 
         if (!$concierto) {
-            $this->view->showError("⚠️ No se encontró el concierto con ID $id");
+            $this->view->showError("No se encontró el concierto con ID $id");
             return;
         }
 
@@ -77,7 +77,7 @@ class ConciertoController{
         $concierto = $this->model->getConcierto($id);
 
         if (!$concierto) {
-            $this->view->showError("⚠️ No se encontró la banda con ID $id");
+            $this->view->showError("No se encontró la banda con ID $id");
             return;
         }
 
