@@ -75,10 +75,20 @@ class BandaController
             return $this->view->showError("No existe la tarea con el id=$id");
         }
 
-        $this->model->deleteBanda($id);
-
-        // redirijo al home bandas
-        header('Location: ' . BASE_URL);
+        try {
+            $this->model->deleteBanda($id);
+            header('Location: ' . BASE_URL);
+            exit;
+        } catch (PDOException $e) {
+            // Si el error es por restricción de clave foránea
+            if ($e->getCode() == '23000') {
+                // Mostramos tu vista de error amigable
+                return $this->view->showError("No se puede eliminar esta banda porque tiene conciertos asignados.");
+            } else {
+                // Si es otro error de base de datos, lo mostramos igual pero controlado
+                return $this->view->showError("Error al eliminar la banda: " . $e->getMessage());
+            }
+        }
     }
 
     function showEditarBanda($id)
