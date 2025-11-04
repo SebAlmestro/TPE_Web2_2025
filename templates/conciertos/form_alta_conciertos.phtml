@@ -32,8 +32,13 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="id_banda" class="form-label">Id_banda</label>
-                            <input type="number" class="form-control bg-dark text-light border-secondary" id="id_banda" name="id_banda" required>
+                            <label for="id_banda" class="form-label">Seleccioná la Banda</label>
+                            <select class="form-select bg-dark text-light border-secondary" id="id_banda" name="id_banda" required>
+                                <option value=""> Elegí una banda </option>
+                                <?php foreach ($bandas as $banda): ?>
+                                    <option value="<?= $banda->id_banda ?>"><?= $banda->Nombre ?></option>
+                                <?php endforeach; ?>
+                            </select>
                         </div>
 
                         <div class="text-center mt-4">

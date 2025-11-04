@@ -1,7 +1,9 @@
 <?php
 require_once './app/models/concierto.model.php';
 require_once './app/views/concierto.view.php';
-class ConciertoController{
+require_once './app/models/banda.model.php';
+class ConciertoController
+{
     private $model;
 
     private $view;
@@ -11,7 +13,8 @@ class ConciertoController{
         $this->model = new ConciertoModel();
         $this->view = new ConciertoView();
     }
-    private function verificarSesion() {
+    private function verificarSesion()
+    {
         if (!isset($_SESSION['usuario'])) {
             header("Location: " . BASE_URL . "bandas");
             die();
@@ -39,12 +42,19 @@ class ConciertoController{
     function showAgregarConcierto()
     {
         $this->verificarSesion();
-        $this->view->showAgregarConcierto();
+
+        $bandaModel = new BandaModel();
+        $bandas = $bandaModel->getBandas(); // devuelve todas las bandas
+
+        $this->view->showAgregarConcierto($bandas); // pasamos las bandas a la vista
     }
-    function addConcierto(){
+    function addConcierto()
+    {
         $this->verificarSesion();
-        if (!empty($_POST['fecha']) && !empty($_POST['horario']) && !empty($_POST['lugar'])
-        && !empty($_POST['ciudad'] && !empty($_POST['id_banda']))){
+        if (
+            !empty($_POST['fecha']) && !empty($_POST['horario']) && !empty($_POST['lugar'])
+            && !empty($_POST['ciudad'] && !empty($_POST['id_banda']))
+        ) {
             $fecha = $_POST['fecha'];
             $horario = $_POST['horario'];
             $lugar = $_POST['lugar'];
@@ -72,17 +82,22 @@ class ConciertoController{
     }
 
     function showEditarConcierto($id)
-    {
-        $this->verificarSesion();
-        $concierto = $this->model->getConcierto($id);
+{
+    $this->verificarSesion();
+    $concierto = $this->model->getConcierto($id);
 
-        if (!$concierto) {
-            $this->view->showError("No se encontró la banda con ID $id");
-            return;
-        }
-
-        $this->view->showEditarConcierto($concierto);
+    if (!$concierto) {
+        $this->view->showError("No se encontró la banda con ID $id");
+        return;
     }
+
+    // Traemos todas las bandas para el select
+    $bandaModel = new BandaModel();
+    $bandas = $bandaModel->getBandas(); // devuelve todas las bandas
+
+    // Pasamos ambas variables a la vista
+    $this->view->showEditarConcierto($concierto, $bandas);
+}
     function editarConcierto($id)
     {
         $this->verificarSesion();

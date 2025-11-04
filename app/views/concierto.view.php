@@ -11,10 +11,10 @@ class ConciertoView
         $conciertoData = $concierto;
         require './templates/conciertos/concierto_particular.phtml';
     }
-    public function showAgregarConcierto(){
+    public function showAgregarConcierto($bandas){
         include_once './templates/conciertos/form_alta_conciertos.phtml';
     }
-    public function showEditarConcierto($concierto){
+    public function showEditarConcierto($concierto, $bandas){
         include_once './templates/conciertos/form_editar_conciertos.phtml';
     }
     public function showError($error)
