@@ -12,26 +12,31 @@
                         <input type="hidden" name="id" value="<?= $concierto->id_concierto ?>">
 
                         <div class="mb-3">
+                        <div class="form-text text-secondary mb-1">Fecha actual: <?= $concierto->Fecha ?></div>
                             <label for="fecha" class="form-label">Nueva Fecha</label>
                             <input type="date" class="form-control bg-dark text-light border-secondary" id="fecha" name="fecha">
                         </div>
 
                         <div class="mb-3">
+                        <div class="form-text text-secondary mb-1">Horario actual: <?= $concierto->Horario ?></div>
                             <label for="horario" class="form-label">Nuevo Horario</label>
                             <input type="time" class="form-control bg-dark text-light border-secondary" id="horario" name="horario">
                         </div>
 
                         <div class="mb-3">
+                        <div class="form-text text-secondary mb-1">Lugar actual: <?= $concierto->Lugar ?></div>
                             <label for="lugar" class="form-label">Nuevo Lugar</label>
                             <input type="text" class="form-control bg-dark text-light border-secondary" id="lugar" name="lugar">
                         </div>
 
                         <div class="mb-3">
+                        <div class="form-text text-secondary mb-1">Ciudad actual: <?= $concierto->Ciudad ?></div>
                             <label for="ciudad" class="form-label">Nueva Ciudad</label>
                             <input type="text" class="form-control bg-dark text-light border-secondary" id="ciudad" name="ciudad">
                         </div>
 
                         <div class="mb-3">
+                        <div class="form-text text-secondary mb-1">Banda actual: <?= $concierto->id_banda ?></div>
                             <label for="id_banda" class="form-label">Nuevo ID de Banda</label>
                             <input type="text" class="form-control bg-dark text-light border-secondary" id="id_banda" name="id_banda">
                         </div>
