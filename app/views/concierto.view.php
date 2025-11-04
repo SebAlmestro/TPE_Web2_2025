@@ -19,6 +19,6 @@ class ConciertoView
     }
     public function showError($error)
     {
-        echo "<h1>$error</h1>";
+        include_once './templates/error.phtml';
     }
 }

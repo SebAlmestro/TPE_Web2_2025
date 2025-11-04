@@ -38,7 +38,7 @@ if ($params[0] === "bandas") {
             if (isset($params[2])) {
                 $bandaController->showBanda($params[2]);
             } else {
-                $this->view->showError("ID de banda no especificado.");
+                $view->showError("ID de banda no especificado.");
             }
             break;
         case 'crear':
@@ -54,7 +54,7 @@ if ($params[0] === "bandas") {
             if (isset($params[2])) {
                 $bandaController->showEditarBanda($params[2]);
             } else {
-                $this->view->showError("Id de banda no especificado");
+                $view->showError("Id de banda no especificado");
             }
             break;
         case 'actualizar':
@@ -64,7 +64,7 @@ if ($params[0] === "bandas") {
             } else if (isset($_POST['id'])) {
                 $bandaController->editarBanda($_POST['id']);
             } else {
-                echo "No se recibió el ID de la banda para actualizar.";
+                $view->showError ("No se recibió el ID de la banda para actualizar.");
             }
             break;
         case 'eliminar':
@@ -72,7 +72,7 @@ if ($params[0] === "bandas") {
             if (isset($params[2])) {
                 $bandaController->deleteBanda($params[2]);
             } else {
-                echo "Id de banda a eliminar no especificado";
+                $view->showError ("Id de banda a eliminar no especificado");
             }
             break;
 
@@ -88,7 +88,7 @@ if ($params[0] === "bandas") {
             break;
 
         default:
-            echo "404 Page Not Found";
+            $view->showError ("404 Page Not Found");
             break;
     }
 }
@@ -104,7 +104,7 @@ if ($params[0] === "conciertos") {
             if (isset($params[2])) {
                 $conciertoController->showConcierto($params[2]);
             } else {
-                $this->view->showError("ID de concierto no especificado.");
+                $view->showError("ID de concierto no especificado.");
             }
             break;
         case 'agregar':
@@ -120,7 +120,7 @@ if ($params[0] === "conciertos") {
             if (isset($params[2])) {
                 $conciertoController->deleteConcierto($params[2]);
             } else {
-                echo "Id de concierto a eliminar no especificado";
+                $view->showError ("Id de concierto a eliminar no especificado");
             }
             break;
         case 'editar':
@@ -128,7 +128,7 @@ if ($params[0] === "conciertos") {
             if (isset($params[2])) {
                 $conciertoController->showEditarConcierto($params[2]);
             } else {
-                $this->view->showError("Id de banda no especificado");
+                $view->showError("Id de banda no especificado");
             }
             break;
         case 'actualizar':
@@ -138,7 +138,7 @@ if ($params[0] === "conciertos") {
             } else if (isset($_POST['id'])) {
                 $conciertoController->editarConcierto($_POST['id']);
             } else {
-                echo "No se recibió el ID del concierto para actualizar.";
+                $view->showError ("No se recibió el ID del concierto para actualizar.");
             }
             break;
     }
